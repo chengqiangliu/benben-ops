@@ -1,0 +1,4 @@
+.idea
+.vagrant
+src/tar/*.gz
+src/tar/*.tgz
