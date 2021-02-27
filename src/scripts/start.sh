@@ -10,6 +10,8 @@ sudo useradd -m -d /home/hadoop -s /bin/bash hadoop
 echo -e "hadoop\nhadoop\n" | sudo passwd hadoop
 sudo chmod 700 -R /home/hadoop/
 sudo usermod -aG wheel hadoop
+sudo mkdir -p /opt/module /home/hadoop/bin
+sudo chown hadoop:hadoop /opt/module/ /home/hadoop/bin
 
 # edit host file
 sudo sh -c "echo 192.168.10.101 hadoop101 >> /etc/hosts"

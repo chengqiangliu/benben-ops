@@ -52,19 +52,24 @@ Vagrant.configure("2") do |config|
     end
   end
 
- # 使用shell脚本进行软件安装和配置
- # Generic initialization
- config.vm.provision "shell", path: "src/scripts/start.sh"
+  # Generic initialization
+  config.vm.provision "shell", path: "src/scripts/start.sh"
 
- # copy required tar for installation
- config.vm.provision "file", source: "src/tar", destination: "/tmp/"
+  # copy required tar for installation
+  config.vm.provision "file", source: "src/tar", destination: "/tmp/"
 
- # java development kit 8 installation
- config.vm.provision "shell", path: "src/scripts/jdk8_install.sh"
+  # copy xsync
+  config.vm.provision "file", source: "src/scripts/xsync", destination: "/tmp/"
 
- # java development Scala 2.12.13 installation
- config.vm.provision "shell", path: "src/scripts/scala212_install.sh"
+  # java development kit 8 installation
+  config.vm.provision "shell", path: "src/scripts/jdk8_install.sh"
 
- # Closing provisioning
- config.vm.provision "shell", path: "src/scripts/closure.sh"
+  # Scala 2.12.13 installation
+  config.vm.provision "shell", path: "src/scripts/scala212_install.sh"
+
+  # xsync installation
+  config.vm.provision "shell", path: "src/scripts/xsync_install.sh"
+
+  # Closing provisioning
+  config.vm.provision "shell", path: "src/scripts/closure.sh"
 end
