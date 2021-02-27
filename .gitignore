@@ -2,3 +2,4 @@
 .vagrant
 src/tar/*.gz
 src/tar/*.tgz
+src/tar/*.zip
