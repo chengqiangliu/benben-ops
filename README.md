@@ -1,4 +1,4 @@
-Prepare VMs:
+### Prepare VMs:
 1. go to this current project folder.
 2. run "vagrant up" or "vagrant up --provision" if the VMs has been created.
    
@@ -30,4 +30,46 @@ Prepare VMs:
    ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop102
    ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop103
    ```
+### Install elasticsearch cluster:
+1. go to this current project folder.
+2. run the following command to install elasticsearch cluster.
+   ```
+   ./src/scripts/elasticsearch/elasticsearch_install.sh
+   ```
+3. run the following command to start elasticsearch cluster.
+   ```
+   ./src/scripts/elasticsearch/elasticsearch.sh start
+   ```
+4. run the following command to stop elasticsearch cluster.
+   ```
+   ./src/scripts/elasticsearch/elasticsearch.sh stop
+   ```
+### Install kibana:
+1. go to this current project folder.
+2. run the following command to install kibana.
+   ```
+   ./src/scripts/kibana/kibana_install.sh
+   ```
+3. run the following command to start kibana.
+   ```
+   ./src/scripts/kibana/kibana.sh start
+   ```
+4. run the following command to stop kibana.
+   ```
+   ./src/scripts/kibana/kibana.sh stop
+   ```
 
+### Install zookeeper:
+1. go to this current project folder.
+2. run the following command to install kibana.
+   ```
+   ./src/scripts/zookeeper/zookeeper_install.sh
+   ```
+3. run the following command to start zookeeper.
+   ```
+   ./src/scripts/zookeeper/zookeeper.sh start
+   ```
+4. run the following command to stop zookeeper.
+   ```
+   ./src/scripts/zookeeper/zookeeper.sh stop
+   ```

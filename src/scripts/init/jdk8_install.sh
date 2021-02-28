@@ -19,5 +19,6 @@ echo "granting required permissions to jdk1.8.0_281 folder..."
 sudo chown -R root: jdk1.8.0_281
 echo "making jdk 1.8.0_281 available in the system..."
 sudo alternatives --install /usr/bin/java java /opt/module/jdk1.8.0_281/bin/java 1
+sudo alternatives --install /usr/bin/jps jps /opt/module/jdk1.8.0_281/bin/jps 1
 
 echo "Java 8 installation finished!"
