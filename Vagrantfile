@@ -65,7 +65,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "src/scripts/init/jdk8_install.sh"
 
   # Scala 2.12.13 installation
-  config.vm.provision "shell", path: "src/scripts/init/scala212_install.sh"
+  config.vm.provision "shell", path: "src/scripts/init/scala_install.sh"
 
   # xsync installation
   config.vm.provision "shell", path: "src/scripts/init/xsync_install.sh"

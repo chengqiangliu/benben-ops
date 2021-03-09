@@ -18,6 +18,10 @@ sudo rm /opt/module/scala-2.12.13.tgz
 echo "granting required permissions to scala-2.12.13 folder..."
 sudo chown -R root: scala-2.12.13
 echo "making scala-2.12.13 available in the system..."
-sudo alternatives --install /usr/bin/scala scala /opt/module/scala-2.12.13/bin/scala 1
+SCALA_HOME=/opt/module/scala-2.12.13
+echo "export SCALA_HOME="$SCALA_HOME >>/etc/profile
+echo "export PATH=\$PATH:\$SCALA_HOME/bin" >>/etc/profile
+source /etc/profile
+#sudo alternatives --install /usr/bin/scala scala /opt/module/scala-2.12.13/bin/scala 1
 
 echo "Scala-2.12.13 installation finished!"
