@@ -12,7 +12,7 @@ echo "Setting scala-2.12.13..."
 echo "Untar scala-2.12.13 into /opt/module..."
 sudo mv /tmp/tar/scala-2.12.13.tgz /opt/module/scala-2.12.13.tgz
 echo "untar scala-2.12.13 ..."
-sudo tar xvzf scala-2.12.13.tgz
+sudo tar xvzf scala-2.12.13.tgz >/dev/null 2>&1
 echo "removing scala-2.12.13 tar file..."
 sudo rm /opt/module/scala-2.12.13.tgz
 echo "granting required permissions to scala-2.12.13 folder..."

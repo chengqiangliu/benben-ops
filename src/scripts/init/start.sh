@@ -3,6 +3,9 @@
 echo "Updating system..."
 sudo yum update -y
 
+echo "Install some useful tools..."
+sudo yum install -y wget net-tools ntp
+
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 

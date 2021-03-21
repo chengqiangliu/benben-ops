@@ -8,8 +8,11 @@
    (only the first time to create VMs)
    ```
    ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop101
+   ssh-copy-id -i ~/.ssh/id_rsa root@hadoop101
    ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop102
+   ssh-copy-id -i ~/.ssh/id_rsa root@hadoop102
    ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop103
+   ssh-copy-id -i ~/.ssh/id_rsa root@hadoop103
    ```
 4. generate SSH key for hadoop user in the VMs
    (only the first time to create VMs)
@@ -73,3 +76,11 @@
    ```
    ./src/scripts/zookeeper/zookeeper.sh stop
    ```
+
+### Install hadoop:
+1. go to this current project folder.
+2. run the following command to install hadoop.
+   ```
+   ./src/scripts/hadoop/hadoop_install.sh
+   ```
+https://cloud.tencent.com/developer/article/1333862
