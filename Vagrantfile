@@ -6,21 +6,22 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
+server_prefix='k8s'
 boxes = [
     {
-        :name => "hadoop101",
+        :name => "#{server_prefix}101",
         :eth1 => "192.168.10.101",
         :mem => "1024",
         :cpu => "1"
     },
     {
-        :name => "hadoop102",
+        :name => "#{server_prefix}102",
         :eth1 => "192.168.10.102",
         :mem => "1024",
         :cpu => "1"
     },
     {
-        :name => "hadoop103",
+        :name => "#{server_prefix}103",
         :eth1 => "192.168.10.103",
         :mem => "1024",
         :cpu => "1"
@@ -56,7 +57,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "src/scripts/init/start.sh"
 
   # copy required tar for installation
-  config.vm.provision "file", source: "src/tar", destination: "/tmp/"
+  config.vm.provision "file", source: "src/tar/basic", destination: "/tmp/"
 
   # copy xsync
   config.vm.provision "file", source: "src/scripts/init/xsync", destination: "/tmp/"

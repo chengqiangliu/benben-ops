@@ -13,13 +13,14 @@ elasticsearch_home=/opt/module/elasticsearch-7.11.1
 
 host=$(hostname)
 subhost=${host:0-3}
+server_prefix='k8s'
 echo "update elasticsearch.yml config..."
 sed -i "s/#cluster.name: my-application/cluster.name: benben-es/g" $elasticsearch_home/config/elasticsearch.yml
 sed -i "s/#node.name: node-1/node.name: node-${subhost}/g" $elasticsearch_home/config/elasticsearch.yml
 sed -i "s/#bootstrap.memory_lock: true/bootstrap.memory_lock: false/g" $elasticsearch_home/config/elasticsearch.yml
 sed -i "/bootstrap.memory_lock: false/a\bootstrap.system_call_filter: false" $elasticsearch_home/config/elasticsearch.yml
 sed -i "s/#network.host: 192.168.0.1/network.host: ${host}/g" $elasticsearch_home/config/elasticsearch.yml
-sed -i "s/#discovery.seed_hosts: \[\"host1\", \"host2\"\]/discovery.seed_hosts: \[\"hadoop101\", \"hadoop102\", \"hadoop103\"\]/g" $elasticsearch_home/config/elasticsearch.yml
+sed -i "s/#discovery.seed_hosts: \[\"host1\", \"host2\"\]/discovery.seed_hosts: \[\"${server_prefix}101\", \"${server_prefix}102\", \"${server_prefix}103\"\]/g" $elasticsearch_home/config/elasticsearch.yml
 sed -i "s/#cluster.initial_master_nodes: \[\"node-1\", \"node-2\"\]/cluster.initial_master_nodes: \[\"node-101\", \"node-102\", \"node-103\"\]/g" $elasticsearch_home/config/elasticsearch.yml
 
 echo "update jvm.options config..."

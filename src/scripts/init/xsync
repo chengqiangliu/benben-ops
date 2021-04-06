@@ -19,7 +19,8 @@ echo pdir=$pdir
 user=`whoami`
 
 #5 循环
+server_prefix='k8s'
 for((host=101; host<=103; host++)); do
-    echo ------------------- hadoop$host --------------
-    rsync -rvl $pdir/$fname $user@hadoop$host:$pdir
+    echo ------------------- ${server_prefix}${host} --------------
+    rsync -rvl $pdir/$fname $user@$server_prefix$host:$pdir
 done

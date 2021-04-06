@@ -17,8 +17,9 @@ sudo mkdir -p /opt/module /home/hadoop/bin
 sudo chown hadoop:hadoop /opt/module/ /home/hadoop/bin
 
 # edit host file
-sudo sh -c "echo 192.168.10.101 hadoop101 >> /etc/hosts"
-sudo sh -c "echo 192.168.10.102 hadoop102 >> /etc/hosts"
-sudo sh -c "echo 192.168.10.103 hadoop103 >> /etc/hosts"
+server_prefix='k8s'
+sudo sh -c "echo 192.168.10.101 ${server_prefix}101 >> /etc/hosts"
+sudo sh -c "echo 192.168.10.102 ${server_prefix}102 >> /etc/hosts"
+sudo sh -c "echo 192.168.10.103 ${server_prefix}103 >> /etc/hosts"
 
 echo "Initial script finished!"

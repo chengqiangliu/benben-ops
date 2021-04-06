@@ -7,12 +7,13 @@
 3. copy private key of the host machine to VMs
    (only the first time to create VMs)
    ```
-   ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop101
-   ssh-copy-id -i ~/.ssh/id_rsa root@hadoop101
-   ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop102
-   ssh-copy-id -i ~/.ssh/id_rsa root@hadoop102
-   ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop103
-   ssh-copy-id -i ~/.ssh/id_rsa root@hadoop103
+   server_prefix='k8s'
+   ssh-copy-id -i ~/.ssh/id_rsa hadoop@${server_prefix}101
+   ssh-copy-id -i ~/.ssh/id_rsa root@${server_prefix}101
+   ssh-copy-id -i ~/.ssh/id_rsa hadoop@${server_prefix}102
+   ssh-copy-id -i ~/.ssh/id_rsa root@${server_prefix}102
+   ssh-copy-id -i ~/.ssh/id_rsa hadoop@${server_prefix}103
+   ssh-copy-id -i ~/.ssh/id_rsa root@${server_prefix}103
    ```
 4. generate SSH key for hadoop user in the VMs
    (only the first time to create VMs)
@@ -21,17 +22,19 @@
    ```
 5. ssh to VM
    ```
-   ssh hadoop@hadoop101
-   ssh hadoop@hadoop102
-   ssh hadoop@hadoop103
+   ssh hadoop@${server_prefix}101
+   ssh hadoop@${server_prefix}102
+   ssh hadoop@${server_prefix}103
    ```
 6. copy private key among the VMs
    (only the first time to create VMs)
 
    ```
-   ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop101
-   ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop102
-   ssh-copy-id -i ~/.ssh/id_rsa hadoop@hadoop103
+   server_prefix='k8s'
+   username=root
+   ssh-copy-id -i ~/.ssh/id_rsa ${username}@${server_prefix}101
+   ssh-copy-id -i ~/.ssh/id_rsa ${username}@${server_prefix}102
+   ssh-copy-id -i ~/.ssh/id_rsa ${username}@${server_prefix}103
    ```
 ### Install elasticsearch cluster:
 1. go to this current project folder.

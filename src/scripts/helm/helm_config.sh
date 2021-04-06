@@ -17,5 +17,6 @@ echo "install helm and kubectl completion..."
 yum install -y bash-completion
 source /usr/share/bash-completion/bash_completion
 source <(helm completion bash)
+source <(kubectl completion bash)
 
 echo "helm installation finished!"
