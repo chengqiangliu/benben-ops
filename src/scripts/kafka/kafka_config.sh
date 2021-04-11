@@ -14,7 +14,7 @@ host=$(hostname)
 subhost=${host:0-3}
 sed -i "s/broker.id=0/broker.id=$subhost/g" kafka_2.12-2.6.1/config/server.properties
 sed -i '/broker.id=/a\delete.topic.enable=true\n' kafka_2.12-2.6.1/config/server.properties
-sed -i "s/log.dirs=\/tmp\/kafka-logs/log.dirs=\/opt\/module\/kafka_2.12-2.6.1\/logs/g" kafka_2.12-2.6.1/config/server.properties
+sed -i "s/log.dirs=\/tmp\/kafka-logs/log.dirs=\/opt\/module\/kafka_2.12-2.6.1\/data/g" kafka_2.12-2.6.1/config/server.properties
 sed -i "s/zookeeper.connect=localhost:2181/zookeeper.connect=hadoop101:2181,hadoop102:2181,hadoop103:2181/g" kafka_2.12-2.6.1/config/server.properties
 
 echo "update /etc/profile..."

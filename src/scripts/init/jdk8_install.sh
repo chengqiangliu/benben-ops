@@ -10,7 +10,7 @@ cd /opt/module
 # install JDK 8
 echo "Setting JDK 8..."
 echo "Untar JDK 8 into /opt/module..."
-sudo mv /tmp/tar/jdk-8u281-linux-x64.tar.gz /opt/module/jdk-8u281-linux-x64.tar.gz
+sudo mv /tmp/basic/jdk-8u281-linux-x64.tar.gz /opt/module/jdk-8u281-linux-x64.tar.gz
 echo "untar jdk 1.8.0_281 ..."
 sudo tar xvzf jdk-8u281-linux-x64.tar.gz >/dev/null 2>&1
 echo "removing jdk-8u281-linux-x64.tar.gz tar file..."

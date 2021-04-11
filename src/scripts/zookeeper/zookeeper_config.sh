@@ -37,6 +37,9 @@ case $host in
   };;
 esac
 
+# to fix the issue that "Error: JAVA_HOME is not set and java could not be found in PATH." while starting the cluster
+sed '30 aJAVA_HOME=/opt/module/jdk1.8.0_281' -i $elasticsearch_home/bin/zkEnv.sh
+
 echo "create zkData folder..."
 mkdir -p $zookeeper_home/zkData
 

@@ -6,11 +6,23 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-server_prefix='vm'
+server_prefix='hadoop'
 boxes = [
     {
-        :name => "#{server_prefix}100",
-        :eth1 => "192.168.10.100",
+        :name => "#{server_prefix}101",
+        :eth1 => "192.168.10.101",
+        :mem => "1024",
+        :cpu => "1"
+    },
+    {
+        :name => "#{server_prefix}102",
+        :eth1 => "192.168.10.102",
+        :mem => "1024",
+        :cpu => "1"
+    },
+    {
+        :name => "#{server_prefix}103",
+        :eth1 => "192.168.10.103",
         :mem => "1024",
         :cpu => "1"
     }
@@ -19,23 +31,27 @@ boxes = [
 Vagrant.configure("2") do |config|
   # 设置虚拟机的Box
   config.vm.box = "centos/7"
-  config.ssh.insert_key = false
 
+  config.ssh.insert_key = false
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|
 
       # 设置虚拟机的主机名
-#       config.vm.hostname = "base-vm"
+      config.vm.hostname = opts[:name]
 
 #       config.vm.provider "vmware_fusion" do |v|
 #         v.vmx["memsize"] = opts[:mem]
 #         v.vmx["numvcpus"] = opts[:cpu]
 #       end
+
       config.vm.provider "virtualbox" do |v|
         v.name = opts[:name]
         v.customize ["modifyvm", :id, "--memory", opts[:mem]]
         v.customize ["modifyvm", :id, "--cpus", opts[:cpu]]
       end
+      
+      # 设置虚拟机的IP
+      config.vm.network :private_network, ip: opts[:eth1]
     end
   end
 
