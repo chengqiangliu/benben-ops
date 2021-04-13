@@ -6,4 +6,5 @@ src/tar/*.zip
 src/tar/*/*.gz
 src/tar/*/*.tgz
 src/tar/*/*.zip
+src/tar/*/*.rpm
 src/vms/.vagrant
