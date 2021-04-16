@@ -1,10 +1,19 @@
 #!/bin/bash
 
+# 关闭防火墙
+echo "关闭防火墙..."
+systemctl stop firewalld
+systemctl disable firewalld
+
+# 时间同步
+yum install ntpdate -y
+echo 'hadoop' | sudo -S ntpdate time.windows.com
+
 # move into /opt/module folder
 cd /opt/module
 
 echo "untar hadoop ..."
-tar -xvzf hadoop-2.9.2.tar.gz
+tar -xvzf hadoop-2.9.2.tar.gz >/dev/null 2>&1
 
 echo "removing hadoop-2.9.2.tar.gz tar file..."
 rm hadoop-2.9.2.tar.gz

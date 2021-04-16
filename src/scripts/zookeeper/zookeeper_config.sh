@@ -4,7 +4,7 @@
 cd /opt/module
 
 echo "untar zookeeper ..."
-tar -xvzf apache-zookeeper-3.6.2-bin.tar.gz
+tar -xvzf apache-zookeeper-3.6.2-bin.tar.gz >/dev/null 2>&1
 mv apache-zookeeper-3.6.2-bin zookeeper-3.6.2
 
 echo "removing apache-zookeeper-3.6.2-bin.tar.gz tar file..."

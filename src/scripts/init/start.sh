@@ -12,6 +12,18 @@ sudo systemctl restart sshd
 sudo useradd -m -d /home/hadoop -s /bin/bash hadoop
 echo -e "hadoop\nhadoop\n" | sudo passwd hadoop
 sudo chmod 700 -R /home/hadoop/
+
+# 给用户root权限
+# 方法一：在下面这行下面加上一行新的
+# root	ALL=(ALL) 	ALL
+# hadoop	ALL=(ALL) 	ALL
+
+# 方法二：运行下面这条命令
+# sudo usermod -aG wheel hadoop
+
+# 确保/etc/sudoers中此行： %wheel  ALL=(ALL)     ALL    没有被注释
+# sudo su -    //虽然Hadoop没有管理的密码，但是利用此命令依然可以切换到管理员
+
 sudo usermod -aG wheel hadoop
 sudo mkdir -p /opt/module /home/hadoop/bin
 sudo chown hadoop:hadoop /opt/module/ /home/hadoop/bin
